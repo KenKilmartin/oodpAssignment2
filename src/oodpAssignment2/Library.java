@@ -8,6 +8,11 @@ public class Library extends JFrame{
 
 	private Container c;
 	private AbstractFactory bookFactory, cdFactory;
+	
+//	should be:
+//	private AbstractFactory factory;
+//	and then in program-if book clicked then: factory = FactoryProducer.getFactory("Book");
+	
 	public Library() {
 		super("Library");
 		c = getContentPane();
