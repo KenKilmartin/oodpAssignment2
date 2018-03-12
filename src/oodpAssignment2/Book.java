@@ -1,5 +1,11 @@
 package oodpAssignment2;
 
-public class Book {
+import javax.swing.ImageIcon;
+
+public interface Book {
+	String getName();
+	ImageIcon getImage();
+	String getAuthor();
+	String getDesc();
 
 }

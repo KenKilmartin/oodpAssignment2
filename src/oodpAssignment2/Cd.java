@@ -1,5 +1,12 @@
 package oodpAssignment2;
 
-public class Cd {
+import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+
+public interface Cd {
+
+	String getName();
+	ImageIcon getImage();
+	ArrayList<String> getTracks();
 }
