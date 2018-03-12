@@ -6,7 +6,6 @@ import javax.swing.*;
 
 public class Library extends JFrame{
 
-	private Container c;
 	private AbstractFactory bookFactory, cdFactory;
 	
 //	should be:
@@ -15,24 +14,23 @@ public class Library extends JFrame{
 	
 	public Library() {
 		super("Library");
-		c = getContentPane();
 		bookFactory = FactoryProducer.getFactory("Book");
 		cdFactory = FactoryProducer.getFactory("CD");
 		makeGUI();
 	}
 	private void makeGUI() {
-		c.setLayout(new BorderLayout());
 		JPanel centerPanel = new JPanel();
-		JLabel label1 = new JLabel(bookFactory.getBook("Harry Potter").getAuthor());
-		JLabel label2 = new JLabel(cdFactory.getCd("Californication").getName());
-		centerPanel.add(label1, BorderLayout.NORTH);
-		centerPanel.add(label2, BorderLayout.SOUTH);
-		c.add(centerPanel);
-		System.out.println("Author of harry potter: "+bookFactory.getBook("Harry Potter").getAuthor());
-		System.out.println("cd name: "+cdFactory.getCd("Californication").getName());
+		JLabel label1 = new JLabel("Author of harry potter: "+bookFactory.getBook("Harry Potter").getAuthor());
+		JLabel label2 = new JLabel(", cd name: "+cdFactory.getCd("Californication").getName());
+		JLabel label3 = new JLabel();
+		label3.setIcon(cdFactory.getCd("Californication").getImage());
+		centerPanel.add(label1);
+		centerPanel.add(label2);
+		centerPanel.add(label3);
+		add(centerPanel);
 		
-		c.setBounds(600, 600, 600, 600);
-		c.setVisible(true);
+		setBounds(200, 200, 600, 600);
+		setVisible(true);
 		
 	}
 	public static void main (String[]args) {
