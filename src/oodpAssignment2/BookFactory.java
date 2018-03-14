@@ -21,4 +21,11 @@ public class BookFactory extends AbstractFactory {
 		return null;
 	}
 
+
+	@Override
+	ComicBook getComic(String comicName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

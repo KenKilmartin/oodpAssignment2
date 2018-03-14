@@ -8,6 +8,8 @@ public class FactoryProducer {
 
 		}else if(choice.equalsIgnoreCase("CD")){
 			return new CdFactory();
+		}else if(choice.equalsIgnoreCase("ComicBook")){
+			return new ComicFactory();
 		}
 
 		return null;
