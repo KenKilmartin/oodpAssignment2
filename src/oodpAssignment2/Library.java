@@ -29,9 +29,9 @@ public class Library extends JFrame{
 		JLabel label2 = new JLabel(", cd name: "+cdFactory.getCd("Californication").getName());
 		JLabel label3 = new JLabel();
 		label3.setIcon(cdFactory.getCd("Californication").getImage());	
-		JLabel label4 = new JLabel("Author of Squee: "+comicFactory.getComic("Squee").getAuthor());
+		JLabel label4 = new JLabel("Author of Squee: "+comicFactory.getComic("Squee").getComicAuthor());
 		JLabel label5 = new JLabel();
-		label5.setIcon(comicFactory.getComic("Squee").getImage());
+		label5.setIcon(comicFactory.getComic("Squee").getComicImage());
 		centerPanel.add(label1);
 		centerPanel.add(label2);
 		centerPanel.add(label3);

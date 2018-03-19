@@ -2,7 +2,7 @@ package oodpAssignment2;
 
 import javax.swing.ImageIcon;
 
-public class Squee implements ComicBook{
+public class Squee {
 	
 	private String name, author, desc;
 	private ImageIcon image;
@@ -14,26 +14,22 @@ public class Squee implements ComicBook{
 		image = new ImageIcon("images/squee.jpg");
 	}
 
-	@Override
 	public String getComic() {
 		// TODO Auto-generated method stub
 		return name;
 	}
 
-	@Override
-	public ImageIcon getImage() {
+	public ImageIcon getComicImage() {
 		// TODO Auto-generated method stub
 		return image;
 	}
 
-	@Override
-	public String getAuthor() {
+	public String getComicAuthor() {
 		// TODO Auto-generated method stub
 		return author;
 	}
 
-	@Override
-	public String getDesc() {
+	public String getComicDesc() {
 		// TODO Auto-generated method stub
 		return desc;
 	}

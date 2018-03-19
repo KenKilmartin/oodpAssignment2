@@ -4,9 +4,9 @@ import javax.swing.ImageIcon;
 
 public interface ComicBook {
 	String getComic();
-	ImageIcon getImage();
-	String getAuthor();
-	String getDesc();
+	ImageIcon getComicImage();
+	String getComicAuthor();
+	String getComicDesc();
 
 }
 

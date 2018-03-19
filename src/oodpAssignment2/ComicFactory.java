@@ -23,7 +23,7 @@ public class ComicFactory extends AbstractFactory{
 			return null;	
 		}
 		if(comicName.equalsIgnoreCase("Squee")){
-			return new Squee();
+			return (ComicBook) new Squee();
 		}
 		return null;
 	}
