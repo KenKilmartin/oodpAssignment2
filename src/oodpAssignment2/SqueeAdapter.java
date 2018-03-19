@@ -2,58 +2,31 @@ package oodpAssignment2;
 
 import javax.swing.ImageIcon;
 
-public class SqueeAdapter implements Book {
+public class SqueeAdapter implements ComicBook {
 	
 	private Squee squee;
+
+	public SqueeAdapter(){
+		squee = new Squee();
+	}
 	
-	public SqueeAdapter(Squee squee) {
-		this.squee =squee;
+	@Override
+	public String getComic() {
+		return squee.getComicName();
 	}
 
-	
-	public String getName() {
-		return this.squee.getComic();
+	@Override
+	public ImageIcon getComicImage() {
+		return squee.getTheComicImage();
 	}
 
-	
-	public ImageIcon getImage() {
-		// TODO Auto-generated method stub
-		return this.squee.getComicImage();
+	@Override
+	public String getComicAuthor() {
+		return squee.getTheComicAuthor();
 	}
 
-	
-	public String getAuthor() {
-		// TODO Auto-generated method stub
-		return this.squee.getComicAuthor();
+	@Override
+	public String getComicDesc() {
+		return squee.getTheComicDesc();
 	}
-
-	
-	public String getDesc() {
-		return this.squee.getComicDesc();
-	}
-
-//	@Override
-//	public String getComic() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	@Override
-//	public ImageIcon getComicImage() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	@Override
-//	public String getComicAuthor() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	@Override
-//	public String getComicDesc() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-
 }

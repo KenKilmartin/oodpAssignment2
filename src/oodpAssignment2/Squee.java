@@ -14,23 +14,19 @@ public class Squee {
 		image = new ImageIcon("images/squee.jpg");
 	}
 
-	public String getComic() {
-		// TODO Auto-generated method stub
+	public String getComicName() {
 		return name;
 	}
 
-	public ImageIcon getComicImage() {
-		// TODO Auto-generated method stub
+	public ImageIcon getTheComicImage() {
 		return image;
 	}
 
-	public String getComicAuthor() {
-		// TODO Auto-generated method stub
+	public String getTheComicAuthor() {
 		return author;
 	}
 
-	public String getComicDesc() {
-		// TODO Auto-generated method stub
+	public String getTheComicDesc() {
 		return desc;
 	}
 
