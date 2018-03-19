@@ -2,7 +2,7 @@ package oodpAssignment2;
 
 import javax.swing.ImageIcon;
 
-public class SqueeAdapter implements ComicBook {
+public class SqueeAdapter implements Book {
 	
 	private Squee squee;
 	
@@ -10,28 +10,50 @@ public class SqueeAdapter implements ComicBook {
 		this.squee =squee;
 	}
 
-	@Override
-	public String getComic() {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public String getName() {
+		return this.squee.getComic();
 	}
 
-	@Override
-	public ImageIcon getComicImage() {
+	
+	public ImageIcon getImage() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.squee.getComicImage();
 	}
 
-	@Override
-	public String getComicAuthor() {
+	
+	public String getAuthor() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.squee.getComicAuthor();
 	}
 
-	@Override
-	public String getComicDesc() {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public String getDesc() {
+		return this.squee.getComicDesc();
 	}
+
+//	@Override
+//	public String getComic() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public ImageIcon getComicImage() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public String getComicAuthor() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public String getComicDesc() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 }
