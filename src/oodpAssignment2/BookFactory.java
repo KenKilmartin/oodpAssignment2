@@ -4,9 +4,7 @@ public class BookFactory extends AbstractFactory {
 
 	  //create an object of SingleObject
 	   private static BookFactory instance = new BookFactory();
-	   
-	       
-
+	        
 	   //make the constructor private so that this class cannot be
 	   //instantiated
 	   private BookFactory(){}

@@ -5,14 +5,14 @@ public class FactoryProducer {
 
 		if(choice.equalsIgnoreCase("Book")){
 			BookFactory object = BookFactory.getInstance();
-			return   object ;
-			
-			
-
+			return   object ;		
 		}else if(choice.equalsIgnoreCase("CD")){
-			return new CdFactory();
+			CdFactory object = CdFactory.getInstance();
+			return   object ;
 		}else if(choice.equalsIgnoreCase("ComicBook")){
-			return new ComicFactory();
+			ComicFactory object = ComicFactory.getInstance();
+			return   object ;
+
 		}
 
 		return null;
