@@ -39,6 +39,12 @@ public class ComicFactory extends AbstractFactory{
 		}
 		if(comicName.equalsIgnoreCase("Squee")){
 			return (ComicBook) new SqueeAdapter();
+		}else if(comicName.equalsIgnoreCase("Slaine")){
+			return (ComicBook) new SlaineAdapter();
+		}else if(comicName.equalsIgnoreCase("SpiderMan")){
+			return (ComicBook) new SpiderManAdapter();
+		}else if(comicName.equalsIgnoreCase("Garfield")){
+			return (ComicBook) new GarfieldAdapter();
 		}
 		return null;
 	}
