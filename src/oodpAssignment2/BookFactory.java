@@ -2,6 +2,21 @@ package oodpAssignment2;
 
 public class BookFactory extends AbstractFactory {
 
+	  //create an object of SingleObject
+	   private static BookFactory instance = new BookFactory();
+	   
+	       
+
+	   //make the constructor private so that this class cannot be
+	   //instantiated
+	   private BookFactory(){}
+
+	   //Get the only object available
+	   public static BookFactory getInstance(){
+	      return instance;
+	   }
+
+	
 	@Override
 	Book getBook(String bookName) {
 		if(bookName == null){

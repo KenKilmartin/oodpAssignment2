@@ -4,7 +4,10 @@ public class FactoryProducer {
 	public static AbstractFactory getFactory(String choice){
 
 		if(choice.equalsIgnoreCase("Book")){
-			return new BookFactory();
+			BookFactory object = BookFactory.getInstance();
+			return   object ;
+			
+			
 
 		}else if(choice.equalsIgnoreCase("CD")){
 			return new CdFactory();
