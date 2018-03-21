@@ -27,19 +27,19 @@ public class Library extends JFrame implements ActionListener{
 	}
 	private void makeGUI() {
 		JPanel centerPanel = new JPanel();
-//		JLabel label1 = new JLabel("Author of harry potter: "+bookFactory.getBook("1984").getAuthor());
-//		JLabel label2 = new JLabel(", cd name: "+cdFactory.getCd("Californication").getName());
-//		JLabel label3 = new JLabel();
-//		label3.setIcon(cdFactory.getCd("Californication").getImage());	
-//		JLabel label4 = new JLabel("Author of Squee: "+comicFactory.getComic("Squee").getComicAuthor());
-//		JLabel label5 = new JLabel();
-//		label5.setIcon(comicFactory.getComic("Squee").getComicImage());
-//		centerPanel.add(label1);
-//		centerPanel.add(label2);
-//		centerPanel.add(label3);
-//		
-//		centerPanel.add(label4);
-//		centerPanel.add(label5);
+		JLabel label1 = new JLabel("Author of harry potter: "+bookFactory.getBook("1984").getAuthor());
+		JLabel label2 = new JLabel(", cd name: "+cdFactory.getCd("Californication").getName());
+		JLabel label3 = new JLabel();
+		label3.setIcon(cdFactory.getCd("Californication").getImage());	
+		JLabel label4 = new JLabel("Author of Squee: "+comicFactory.getComic("Squee").getComicAuthor());
+		JLabel label5 = new JLabel();
+		label5.setIcon(comicFactory.getComic("Squee").getComicImage());
+		centerPanel.add(label1);
+		centerPanel.add(label2);
+		centerPanel.add(label3);
+		
+		centerPanel.add(label4);
+		centerPanel.add(label5);
 		
 		JMenuBar mbar = new JMenuBar();
 		setJMenuBar(mbar);
@@ -53,7 +53,8 @@ public class Library extends JFrame implements ActionListener{
 		mnuOpen = new cmdMenu("Open...", this);
 		mnuFile.add(mnuOpen);
 		
-		
+		mnuOpen.addActionListener(this);
+		mnuOpen.setCommand (new fileCommand(this));
 		
 //		
 //		add(centerPanel);
