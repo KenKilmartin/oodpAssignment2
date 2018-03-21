@@ -25,7 +25,7 @@ public class Library extends JFrame{
 	}
 	private void makeGUI() {
 		JPanel centerPanel = new JPanel();
-		JLabel label1 = new JLabel("Author of harry potter: "+bookFactory.getBook("Harry Potter").getAuthor());
+		JLabel label1 = new JLabel("Author of harry potter: "+bookFactory.getBook("1984").getAuthor());
 		JLabel label2 = new JLabel(", cd name: "+cdFactory.getCd("Californication").getName());
 		JLabel label3 = new JLabel();
 		label3.setIcon(cdFactory.getCd("Californication").getImage());	

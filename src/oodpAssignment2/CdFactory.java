@@ -33,9 +33,13 @@ public class CdFactory extends AbstractFactory{
 			return new AmericanIdiotCD();
 		}else if(cdName.equalsIgnoreCase("Californication")){
 			return new Californication();
+		}else if(cdName.equalsIgnoreCase("Nevermind")){
+			return new NevermindCD();
 		}
 		return null;
 	}
+	
+	
 
 	@Override
 	ComicBook getComic(String comicName) {
