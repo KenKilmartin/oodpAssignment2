@@ -137,41 +137,6 @@ public class Library extends JFrame implements ActionListener{
 		return wrapTopPanel;
 	}
 	
-	private void makeGUI() {
-//		JPanel centerPanel = new JPanel();
-//		JLabel label1 = new JLabel("Author of harry potter: "+bookFactory.getBook("1984").getAuthor());
-//		JLabel label2 = new JLabel(", cd name: "+cdFactory.getCd("Californication").getName());
-//		JLabel label3 = new JLabel();
-//		label3.setIcon(cdFactory.getCd("Californication").getImage());	
-//		JLabel label4 = new JLabel("Author of Squee: "+comicFactory.getComic("Squee").getComicAuthor());
-//		JLabel label5 = new JLabel();
-//		label5.setIcon(comicFactory.getComic("Squee").getComicImage());
-//		centerPanel.add(label1);
-//		centerPanel.add(label2);
-//		centerPanel.add(label3);
-//		
-//		centerPanel.add(label4);
-//		centerPanel.add(label5);
-
-		//moved to library constructor
-//		JMenuBar mbar = new JMenuBar();
-//		setJMenuBar(mbar);
-//		
-//		mnuFile = new JMenu("File", true);
-//		mbar.add(mnuFile);
-//		
-//		getContentPane().add(centerPanel);
-//	
-//
-//		mnuOpen = new cmdMenu("Open...", this);
-//		mnuFile.add(mnuOpen);
-//		
-//		mnuOpen.addActionListener(this);
-//		mnuOpen.setCommand (new fileCommand(this));
-//		
-		
-	}
-	
 	public void actionPerformed(ActionEvent e)   {
 		
 		if(e.getSource()==logOutBtn){
