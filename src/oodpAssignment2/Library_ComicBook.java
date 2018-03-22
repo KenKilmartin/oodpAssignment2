@@ -144,7 +144,7 @@ public class Library_ComicBook extends JFrame implements ItemListener {
 		JPanel topPanel = new JPanel(new BorderLayout());
 		topPanel.setBackground(Color.PINK);
 		
-		JLabel titleLabel = new JLabel("Welcome to the wonder world of Comic Books...");
+		JLabel titleLabel = new JLabel("Welcome to the wonderful world of Comic Books...");
 		titleLabel.setFont(new Font("Cooper Black", Font.PLAIN, 30));
 		
 		titleLabel.setBorder(BorderFactory.createEmptyBorder(50, 30, 10, 10)); //empty border (top, left, bottom, right)
