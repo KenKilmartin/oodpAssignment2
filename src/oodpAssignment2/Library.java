@@ -1,10 +1,10 @@
 package oodpAssignment2;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 
 public class Library extends JFrame implements ActionListener{
 
@@ -13,18 +13,126 @@ public class Library extends JFrame implements ActionListener{
 	 */
 	private static final long serialVersionUID = 1L;
 	private AbstractFactory bookFactory, cdFactory,comicFactory;
+	JButton bookBtn, cdBtn, comicBookBtn, logOutBtn;
+	Frame myFrame;
 	JMenu mnuFile;
 	cmdMenu  mnuOpen;
 	
-
+	//setting up Card Layout
+	CardLayout myCardLayout;
+	JPanel swapPanelCards, wrapMainScreenPanel;
 	
 	public Library() {
 		super("Library");
-		bookFactory = FactoryProducer.getFactory("Book");
-		cdFactory = FactoryProducer.getFactory("CD");
-		comicFactory = FactoryProducer.getFactory("ComicBook");
-		makeGUI();
+		setSize(1400,800);
+		myFrame = new Frame();
+		
+		JMenuBar mbar = new JMenuBar();
+		setJMenuBar(mbar);
+		
+		mnuFile = new JMenu("File", true);
+		mbar.add(mnuFile);
+	
+		mnuOpen = new cmdMenu("Open...", this);
+		mnuFile.add(mnuOpen);
+		
+		mnuOpen.addActionListener(this);
+		mnuOpen.setCommand (new fileCommand(this));
+		
+		myCardLayout = new CardLayout();
+		swapPanelCards = new JPanel(myCardLayout);
+		
+		JPanel topPanel = (buildTopPanel());
+		JPanel bottomPanel = (buildBottomPanel());
+		
+		wrapMainScreenPanel = new JPanel(new BorderLayout());	
+		wrapMainScreenPanel.add(topPanel, BorderLayout.NORTH);
+		wrapMainScreenPanel.add(bottomPanel, BorderLayout.CENTER);
+		
+		swapPanelCards.add(wrapMainScreenPanel, "homeScreen");
+		
+		
+		add(swapPanelCards);
+		myCardLayout.show(swapPanelCards,"homeScreen");
+	    setLocationRelativeTo(null);	//put to center of the screen
+	    setResizable(false);
+		setVisible(true);
+	 
 	}
+	private JPanel buildBottomPanel() {
+		JPanel buttonPanel = new JPanel(new GridLayout(2,3,70,90)); //GridLayout(rows, columns, horizontal gap, vertical gap)
+		Border emptyBorder = BorderFactory.createEmptyBorder(150, 70, 150, 70);
+		Border topLineBorder =  BorderFactory.createMatteBorder(3, 0, 0, 0, Color.CYAN);
+
+		Border greenLine =  BorderFactory.createMatteBorder(3, 3, 3, 3, Color.GREEN);//(top, left, bottom, right)
+		Border emptyBorder2 = BorderFactory.createEmptyBorder(35, 25, 35, 25);//(top, left, bottom, right)
+				
+		ImageIcon bookIcon = new ImageIcon("images/book.jpg");  
+		bookBtn = new JButton(bookIcon);
+		bookBtn.setFont(new Font("Lucida Sans", Font.BOLD, 16));
+		bookBtn.setForeground(Color.DARK_GRAY);
+		bookBtn.setBorder(BorderFactory.createCompoundBorder(greenLine, emptyBorder2));
+		bookBtn.addActionListener(this);
+	
+		ImageIcon cdIcon = new ImageIcon("images/cd.jpg"); 
+		cdBtn = new JButton(cdIcon);
+		cdBtn.setFont(new Font("Lucida Sans", Font.BOLD, 16));
+		cdBtn.setForeground(Color.DARK_GRAY);
+		cdBtn.setBorder(BorderFactory.createCompoundBorder(greenLine, emptyBorder2));
+		cdBtn.addActionListener(this);
+
+		ImageIcon comicBookIcon = new ImageIcon("images/comic.jpg"); 
+		comicBookBtn = new JButton(comicBookIcon);
+		comicBookBtn.setFont(new Font("Lucida Sans", Font.BOLD, 16));
+		comicBookBtn.setForeground(Color.DARK_GRAY);
+		comicBookBtn.setBorder(BorderFactory.createCompoundBorder(greenLine, emptyBorder2));
+		comicBookBtn.addActionListener(this);
+
+		ImageIcon logoutIcon = new ImageIcon("images/logout.jpg"); 
+		logOutBtn = new JButton(logoutIcon);
+		logOutBtn.setFont(new Font("Lucida Sans", Font.BOLD, 16));
+		logOutBtn.setForeground(Color.DARK_GRAY);
+		logOutBtn.setBorder(BorderFactory.createCompoundBorder(greenLine, emptyBorder2));
+		logOutBtn.addActionListener(this);
+		
+		buttonPanel.add(bookBtn);
+		buttonPanel.add(cdBtn);
+		buttonPanel.add(comicBookBtn);
+
+		buttonPanel.add(logOutBtn);
+		
+		buttonPanel.setBackground(Color.PINK);
+		buttonPanel.setBorder(BorderFactory.createCompoundBorder(topLineBorder, emptyBorder));
+		
+		return buttonPanel;
+	}
+	
+	private JPanel buildTopPanel() {
+		JPanel leftPanel = new JPanel();
+		JPanel rightPanel = new JPanel();
+		JPanel wrapTopPanel = new JPanel(new BorderLayout());
+		wrapTopPanel.setBackground(Color.PINK);  //HAHAHAHAHA Kens fav colour
+		
+		JLabel welcomeLabel = new JLabel("Welcome to the Best Library Ever!");
+		welcomeLabel.setFont(new Font("Cooper Black", Font.PLAIN, 30));
+		//empty border around the welcome (top, left, bottom, right)
+		welcomeLabel.setBorder(BorderFactory.createEmptyBorder(50, 30, 10, 10));
+		welcomeLabel.setForeground(Color.DARK_GRAY);
+		leftPanel.setBackground(Color.PINK);
+		
+		JLabel promptLabel = new JLabel("What would you like to Rent?");
+		promptLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
+		promptLabel.setBorder(BorderFactory.createEmptyBorder(50, 10, 20, 10));//(top, left, bottom, right)
+		rightPanel.setBackground(Color.PINK);
+		
+		leftPanel.add(welcomeLabel);
+		rightPanel.add(promptLabel);
+		wrapTopPanel.add(leftPanel, BorderLayout.WEST);
+		wrapTopPanel.add(rightPanel, BorderLayout.EAST);
+		
+		return wrapTopPanel;
+	}
+	
 	private void makeGUI() {
 		JPanel centerPanel = new JPanel();
 		JLabel label1 = new JLabel("Author of harry potter: "+bookFactory.getBook("1984").getAuthor());
@@ -40,32 +148,64 @@ public class Library extends JFrame implements ActionListener{
 		
 		centerPanel.add(label4);
 		centerPanel.add(label5);
-		
-		JMenuBar mbar = new JMenuBar();
-		setJMenuBar(mbar);
-		
-		mnuFile = new JMenu("File", true);
-		mbar.add(mnuFile);
-		
-		getContentPane().add(centerPanel);
-	
 
-		mnuOpen = new cmdMenu("Open...", this);
-		mnuFile.add(mnuOpen);
-		
-		mnuOpen.addActionListener(this);
-		mnuOpen.setCommand (new fileCommand(this));
-		
+		//moved to library constructor
+//		JMenuBar mbar = new JMenuBar();
+//		setJMenuBar(mbar);
 //		
-//		add(centerPanel);
+//		mnuFile = new JMenu("File", true);
+//		mbar.add(mnuFile);
+//		
+//		getContentPane().add(centerPanel);
+//	
+//
+//		mnuOpen = new cmdMenu("Open...", this);
+//		mnuFile.add(mnuOpen);
+//		
+//		mnuOpen.addActionListener(this);
+//		mnuOpen.setCommand (new fileCommand(this));
+//		
 		
-		setBounds(200, 200, 600, 600);
-		setVisible(true);
+	}
+	
+	public void actionPerformed(ActionEvent e)   {
 		
-	}public void actionPerformed(ActionEvent e)   {
+		if(e.getSource()==logOutBtn){
+
+			this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));//to close the GUI	
+			UIManager.put("OptionPane.background", Color.PINK);
+			UIManager.put("Panel.background", Color.pink);
+			JOptionPane.showMessageDialog(myFrame, "You have now Logged Out", "Good-Bye", JOptionPane.PLAIN_MESSAGE);
+			System.exit(0);//this stops the program running in the background
+		
+		}else if(e.getSource()==bookBtn){
+			
+			bookFactory = FactoryProducer.getFactory("Book");
+				
+			//create a new AddStudent1 page and pass it this frame
+			//new AddStudent1(this);
+			
+			//show the AddStudent1 page
+			//myCardLayout.show(swapPanelCards,"AddStudent1");
+		
+		}else if(e.getSource()==cdBtn){
+			cdFactory = FactoryProducer.getFactory("CD");
+			
+			//new ViewStudent1(this);
+			//myCardLayout.show(swapPanelCards,"ViewStudent1");
+		}else if(e.getSource()==comicBookBtn){
+			
+			comicFactory = FactoryProducer.getFactory("ComicBook");
+			//new ModifyStudent1(this);
+			//myCardLayout.show(swapPanelCards,"ModifyStudent1");
+		}		
+		
+		//the command code---
 		CommandHolder obj = (CommandHolder)e.getSource();
 		obj.getCommand().Execute();
 	}
+	
+	
 	
 	
 	public static void main (String[]args) {
