@@ -24,7 +24,7 @@ public class BookFactory extends AbstractFactory {
 			return new HarryPotter();
 		}else if(bookName.equalsIgnoreCase("Hunger Games")){
 			return new HungerGames();
-		}else if(bookName.equalsIgnoreCase("1984")){
+		}else if(bookName.equalsIgnoreCase("Nineteen Eighty-Four")){
 			return new NineteenEightyFour();
 		}else if(bookName.equalsIgnoreCase("Ulysses")){
 			return new Ulysses();

@@ -6,17 +6,18 @@ import javax.swing.*;
 import javax.swing.border.Border;
 
 
-public class Library_Book extends JFrame implements ItemListener {
+public class Library_CD extends JFrame implements ItemListener {
 	private JPanel wrapPanel;
-	private Checkbox harryPotter, hungerGames, metamorphosis, nineteenEightyFour, ulysses;
+	private Checkbox americanIdiot, californication, nevermind;
+//	private Checkbox nineteenEightyFour, ulysses;
 	Library frame;
 	AbstractFactory factory;
-	Book book;
-	JTextArea bookInfoText;
+	Cd cd;
+	JTextArea cdInfoText;
 
 	JLabel imageLabel;
 	
-	public Library_Book(Library frame, AbstractFactory factory){
+	public Library_CD(Library frame, AbstractFactory factory){
 		this.frame=frame;
 		this.factory = factory;
 		wrapPanel = new JPanel(new BorderLayout());
@@ -34,7 +35,7 @@ public class Library_Book extends JFrame implements ItemListener {
 		
 		
 		
-		frame.swapPanelCards.add(wrapPanel, "Library_Book");
+		frame.swapPanelCards.add(wrapPanel, "Library_CD");
 
 	}
 
@@ -52,53 +53,53 @@ public class Library_Book extends JFrame implements ItemListener {
 		bookBtnPanel.setBorder(emptyBorder);
 		CheckboxGroup grp= new CheckboxGroup();
 		
-		harryPotter = new Checkbox("Harry Potter", grp, false);
-		harryPotter.addItemListener(this);
+		americanIdiot = new Checkbox("American Idiot", grp, false);
+		americanIdiot.addItemListener(this);
 		
-		hungerGames = new Checkbox("Hunger Games", grp, false);
-		hungerGames.addItemListener(this);
+		californication = new Checkbox("Californication", grp, false);
+		californication.addItemListener(this);
 		
-		metamorphosis = new Checkbox("Metamorphosis", grp, false);
-		metamorphosis.addItemListener(this);
+		nevermind = new Checkbox("Nevermind", grp, false);
+		nevermind.addItemListener(this);
 		
-		nineteenEightyFour = new Checkbox("Nineteen Eighty-Four", grp, false);
-		nineteenEightyFour.addItemListener(this);
+//		nineteenEightyFour = new Checkbox("Nineteen Eighty-Four", grp, false);
+//		nineteenEightyFour.addItemListener(this);
+//		
+//		ulysses = new Checkbox("Ulysses", grp, false);
+//		ulysses.addItemListener(this);
 		
-		ulysses = new Checkbox("Ulysses", grp, false);
-		ulysses.addItemListener(this);
-		
-		bookBtnPanel.add(harryPotter);
-		bookBtnPanel.add(hungerGames);
-		bookBtnPanel.add(metamorphosis);
-		bookBtnPanel.add(nineteenEightyFour);
-		bookBtnPanel.add(ulysses);
+		bookBtnPanel.add(americanIdiot);
+		bookBtnPanel.add(californication);
+		bookBtnPanel.add(nevermind);
+//		bookBtnPanel.add(nineteenEightyFour);
+//		bookBtnPanel.add(ulysses);
 		
 		centerPanel.add(bookBtnPanel, BorderLayout.NORTH);
 		
-		JPanel bookInfoPanel = makeBookInfoPanel();
-		centerPanel.add(bookInfoPanel, BorderLayout.CENTER);
+		JPanel cdInfoPanel = makeCdInfoPanel();
+		centerPanel.add(cdInfoPanel, BorderLayout.CENTER);
 		return centerPanel;
 	}
 	
-	public JPanel makeBookInfoPanel() {
-		JPanel bInfoPanel = new JPanel(new BorderLayout());
-		bookInfoText = new JTextArea(50, 50);
-		bookInfoText.setFont(new Font("Lucida Sans", Font.BOLD, 16));
+	public JPanel makeCdInfoPanel() {
+		JPanel cdInfoPanel = new JPanel(new BorderLayout());
+		cdInfoText = new JTextArea(50, 50);
+		cdInfoText.setFont(new Font("Lucida Sans", Font.BOLD, 16));
 		Border emptyBorder = BorderFactory.createEmptyBorder(10, 20, 10, 20);//(top, left, bottom, right)
 		Border greenLine =  BorderFactory.createMatteBorder(2, 2, 2, 2, Color.GREEN);//(top, left, bottom, right)
-		bookInfoText.setBorder(BorderFactory.createCompoundBorder(greenLine, emptyBorder));
-		JScrollPane scroll = new JScrollPane(bookInfoText); 
+		cdInfoText.setBorder(BorderFactory.createCompoundBorder(greenLine, emptyBorder));
+		JScrollPane scroll = new JScrollPane(cdInfoText); 
 		
 		scroll.setBorder(emptyBorder);
-		bookInfoText.setLineWrap(true);
+		cdInfoText.setLineWrap(true);
 
 		imageLabel = new JLabel();
 		imageLabel.setBorder(emptyBorder);
-		bInfoPanel.add(imageLabel, BorderLayout.WEST);
-		bInfoPanel.add(scroll, BorderLayout.CENTER);
-		bInfoPanel.setBorder(BorderFactory.createMatteBorder(3, 3, 3, 3, Color.CYAN));
+		cdInfoPanel.add(imageLabel, BorderLayout.WEST);
+		cdInfoPanel.add(scroll, BorderLayout.CENTER);
+		cdInfoPanel.setBorder(BorderFactory.createMatteBorder(3, 3, 3, 3, Color.CYAN));
 		
-		return bInfoPanel;
+		return cdInfoPanel;
 	}
 
 	private JPanel buildbottomPanel() {
@@ -126,7 +127,7 @@ public class Library_Book extends JFrame implements ItemListener {
 			public void actionPerformed(ActionEvent e) {
 				UIManager.put("OptionPane.background", Color.PINK);
 				UIManager.put("Panel.background", Color.pink);
-				JOptionPane.showMessageDialog(frame, "You have chosen to rent "+book.getName(), "Enjoy!!", JOptionPane.PLAIN_MESSAGE);
+				JOptionPane.showMessageDialog(frame, "You have chosen to rent "+cd.getName(), "Enjoy!!", JOptionPane.PLAIN_MESSAGE);
 				
 			}
 		});
@@ -144,7 +145,7 @@ public class Library_Book extends JFrame implements ItemListener {
 		JPanel topPanel = new JPanel(new BorderLayout());
 		topPanel.setBackground(Color.PINK);
 		
-		JLabel titleLabel = new JLabel("Books, books and more books!");
+		JLabel titleLabel = new JLabel("So many awesome CD's, how will you ever choose!?");
 		titleLabel.setFont(new Font("Cooper Black", Font.PLAIN, 30));
 		
 		titleLabel.setBorder(BorderFactory.createEmptyBorder(50, 30, 10, 10)); //empty border (top, left, bottom, right)
@@ -159,40 +160,44 @@ public class Library_Book extends JFrame implements ItemListener {
 
 	@Override
 	public void itemStateChanged(ItemEvent e) {
-		if(e.getItem().equals("Harry Potter")){
+		if(e.getItem().equals("American Idiot")){
 			
-			book=factory.getBook("Harry Potter");
+			cd=factory.getCd("American Idiot");
 		
-		}else if(e.getItem().equals("Hunger Games")){
-			book=factory.getBook("Hunger Games");
+		}else if(e.getItem().equals("Californication")){
+			cd=factory.getCd("Californication");
 			
-		}else if(e.getItem().equals("Metamorphosis")){
-			book=factory.getBook("Metamorphosis");
+		}else if(e.getItem().equals("Nevermind")){
+			cd=factory.getCd("Nevermind");
 			
 		}else if(e.getItem().equals("Nineteen Eighty-Four")){
-			book=factory.getBook("Nineteen Eighty-Four");
+			cd=factory.getCd("Nineteen Eighty-Four");
 			
 		}else if(e.getItem().equals("Ulysses")){
-			book=factory.getBook("Ulysses");
+			cd=factory.getCd("Ulysses");
 			
 		}
-		clearBookInfo();
-		setBookInfo();
+		clearCDInfo();
+		setCDInfo();
 	}
 
-	private void setBookInfo() {
-		if (book != null) {
-			imageLabel.setIcon(book.getImage());
-			bookInfoText.setText(book.getName()+"\n");
-			bookInfoText.append("\nAuthor: "+book.getAuthor()+"\n");
-			bookInfoText.append("\nDescription\n"+book.getDesc());
+	private void setCDInfo() {
+		if (cd != null) {
+			imageLabel.setIcon(cd.getImage());
+			cdInfoText.setText(cd.getName()+"\n");
+			cdInfoText.append("\nTracks: \n");
+			for (int i = 0; i < cd.getTracks().size(); i++) {
+				cdInfoText.append((i+1)+": "+cd.getTracks().get(i)+"\n");
+			}
+			
+
 			
 		}
 		
 	}
 
-	private void clearBookInfo() {
-		bookInfoText.setText("");
+	private void clearCDInfo() {
+		cdInfoText.setText("");
 		imageLabel.setIcon(null);
 	}
 	

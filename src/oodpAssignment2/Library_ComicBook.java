@@ -6,17 +6,17 @@ import javax.swing.*;
 import javax.swing.border.Border;
 
 
-public class Library_Book extends JFrame implements ItemListener {
+public class Library_ComicBook extends JFrame implements ItemListener {
 	private JPanel wrapPanel;
-	private Checkbox harryPotter, hungerGames, metamorphosis, nineteenEightyFour, ulysses;
+	private Checkbox squee, slaine, spiderMan, garfield;
 	Library frame;
 	AbstractFactory factory;
-	Book book;
-	JTextArea bookInfoText;
+	ComicBook comicBook;
+	JTextArea comicBookInfoText;
 
 	JLabel imageLabel;
 	
-	public Library_Book(Library frame, AbstractFactory factory){
+	public Library_ComicBook(Library frame, AbstractFactory factory){
 		this.frame=frame;
 		this.factory = factory;
 		wrapPanel = new JPanel(new BorderLayout());
@@ -34,7 +34,7 @@ public class Library_Book extends JFrame implements ItemListener {
 		
 		
 		
-		frame.swapPanelCards.add(wrapPanel, "Library_Book");
+		frame.swapPanelCards.add(wrapPanel, "Library_ComicBook");
 
 	}
 
@@ -52,26 +52,26 @@ public class Library_Book extends JFrame implements ItemListener {
 		bookBtnPanel.setBorder(emptyBorder);
 		CheckboxGroup grp= new CheckboxGroup();
 		
-		harryPotter = new Checkbox("Harry Potter", grp, false);
-		harryPotter.addItemListener(this);
+		squee = new Checkbox("Squee", grp, false);
+		squee.addItemListener(this);
 		
-		hungerGames = new Checkbox("Hunger Games", grp, false);
-		hungerGames.addItemListener(this);
+		slaine = new Checkbox("Slaine", grp, false);
+		slaine.addItemListener(this);
 		
-		metamorphosis = new Checkbox("Metamorphosis", grp, false);
-		metamorphosis.addItemListener(this);
+		spiderMan = new Checkbox("SpiderMan", grp, false);
+		spiderMan.addItemListener(this);
 		
-		nineteenEightyFour = new Checkbox("Nineteen Eighty-Four", grp, false);
-		nineteenEightyFour.addItemListener(this);
+		garfield = new Checkbox("Garfield", grp, false);
+		garfield.addItemListener(this);
 		
-		ulysses = new Checkbox("Ulysses", grp, false);
-		ulysses.addItemListener(this);
+//		ulysses = new Checkbox("Ulysses", grp, false);
+//		ulysses.addItemListener(this);
 		
-		bookBtnPanel.add(harryPotter);
-		bookBtnPanel.add(hungerGames);
-		bookBtnPanel.add(metamorphosis);
-		bookBtnPanel.add(nineteenEightyFour);
-		bookBtnPanel.add(ulysses);
+		bookBtnPanel.add(squee);
+		bookBtnPanel.add(slaine);
+		bookBtnPanel.add(spiderMan);
+		bookBtnPanel.add(garfield);
+//		bookBtnPanel.add(ulysses);
 		
 		centerPanel.add(bookBtnPanel, BorderLayout.NORTH);
 		
@@ -81,24 +81,24 @@ public class Library_Book extends JFrame implements ItemListener {
 	}
 	
 	public JPanel makeBookInfoPanel() {
-		JPanel bInfoPanel = new JPanel(new BorderLayout());
-		bookInfoText = new JTextArea(50, 50);
-		bookInfoText.setFont(new Font("Lucida Sans", Font.BOLD, 16));
+		JPanel cInfoPanel = new JPanel(new BorderLayout());
+		comicBookInfoText = new JTextArea(50, 50);
+		comicBookInfoText.setFont(new Font("Lucida Sans", Font.BOLD, 16));
 		Border emptyBorder = BorderFactory.createEmptyBorder(10, 20, 10, 20);//(top, left, bottom, right)
 		Border greenLine =  BorderFactory.createMatteBorder(2, 2, 2, 2, Color.GREEN);//(top, left, bottom, right)
-		bookInfoText.setBorder(BorderFactory.createCompoundBorder(greenLine, emptyBorder));
-		JScrollPane scroll = new JScrollPane(bookInfoText); 
+		comicBookInfoText.setBorder(BorderFactory.createCompoundBorder(greenLine, emptyBorder));
+		JScrollPane scroll = new JScrollPane(comicBookInfoText); 
 		
 		scroll.setBorder(emptyBorder);
-		bookInfoText.setLineWrap(true);
+		comicBookInfoText.setLineWrap(true);
 
 		imageLabel = new JLabel();
 		imageLabel.setBorder(emptyBorder);
-		bInfoPanel.add(imageLabel, BorderLayout.WEST);
-		bInfoPanel.add(scroll, BorderLayout.CENTER);
-		bInfoPanel.setBorder(BorderFactory.createMatteBorder(3, 3, 3, 3, Color.CYAN));
+		cInfoPanel.add(imageLabel, BorderLayout.WEST);
+		cInfoPanel.add(scroll, BorderLayout.CENTER);
+		cInfoPanel.setBorder(BorderFactory.createMatteBorder(3, 3, 3, 3, Color.CYAN));
 		
-		return bInfoPanel;
+		return cInfoPanel;
 	}
 
 	private JPanel buildbottomPanel() {
@@ -126,7 +126,7 @@ public class Library_Book extends JFrame implements ItemListener {
 			public void actionPerformed(ActionEvent e) {
 				UIManager.put("OptionPane.background", Color.PINK);
 				UIManager.put("Panel.background", Color.pink);
-				JOptionPane.showMessageDialog(frame, "You have chosen to rent "+book.getName(), "Enjoy!!", JOptionPane.PLAIN_MESSAGE);
+				JOptionPane.showMessageDialog(frame, "You have chosen to rent "+comicBook.getComic(), "Enjoy!!", JOptionPane.PLAIN_MESSAGE);
 				
 			}
 		});
@@ -144,7 +144,7 @@ public class Library_Book extends JFrame implements ItemListener {
 		JPanel topPanel = new JPanel(new BorderLayout());
 		topPanel.setBackground(Color.PINK);
 		
-		JLabel titleLabel = new JLabel("Books, books and more books!");
+		JLabel titleLabel = new JLabel("Welcome to the wonder world of Comic Books...");
 		titleLabel.setFont(new Font("Cooper Black", Font.PLAIN, 30));
 		
 		titleLabel.setBorder(BorderFactory.createEmptyBorder(50, 30, 10, 10)); //empty border (top, left, bottom, right)
@@ -159,40 +159,37 @@ public class Library_Book extends JFrame implements ItemListener {
 
 	@Override
 	public void itemStateChanged(ItemEvent e) {
-		if(e.getItem().equals("Harry Potter")){
+		if(e.getItem().equals("Squee")){
 			
-			book=factory.getBook("Harry Potter");
+			comicBook=factory.getComic("Squee");
 		
-		}else if(e.getItem().equals("Hunger Games")){
-			book=factory.getBook("Hunger Games");
+		}else if(e.getItem().equals("Slaine")){
+			comicBook=factory.getComic("Slaine");
 			
-		}else if(e.getItem().equals("Metamorphosis")){
-			book=factory.getBook("Metamorphosis");
+		}else if(e.getItem().equals("SpiderMan")){
+			comicBook=factory.getComic("SpiderMan");
 			
-		}else if(e.getItem().equals("Nineteen Eighty-Four")){
-			book=factory.getBook("Nineteen Eighty-Four");
-			
-		}else if(e.getItem().equals("Ulysses")){
-			book=factory.getBook("Ulysses");
-			
+		}else if(e.getItem().equals("Garfield")){
+			comicBook=factory.getComic("Garfield");
+						
 		}
-		clearBookInfo();
-		setBookInfo();
+		clearComicBookInfo();
+		setComicBookInfo();
 	}
 
-	private void setBookInfo() {
-		if (book != null) {
-			imageLabel.setIcon(book.getImage());
-			bookInfoText.setText(book.getName()+"\n");
-			bookInfoText.append("\nAuthor: "+book.getAuthor()+"\n");
-			bookInfoText.append("\nDescription\n"+book.getDesc());
+	private void setComicBookInfo() {
+		if (comicBook != null) {
+			imageLabel.setIcon(comicBook.getComicImage());
+			comicBookInfoText.setText(comicBook.getComic()+"\n");
+			comicBookInfoText.append("\nAuthor: "+comicBook.getComicAuthor()+"\n");
+			comicBookInfoText.append("\nDescription\n"+comicBook.getComicDesc());
 			
 		}
 		
 	}
 
-	private void clearBookInfo() {
-		bookInfoText.setText("");
+	private void clearComicBookInfo() {
+		comicBookInfoText.setText("");
 		imageLabel.setIcon(null);
 	}
 	

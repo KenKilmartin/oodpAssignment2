@@ -11,7 +11,7 @@ public class SpiderMan {
 		name = "Spider-Man";
 		author = "Stan Lee";
 		desc = "The character was created by writer-editor Stan Lee and writer-artist Steve Ditko, and first appeared in the anthology comic book Amazing Fantasy #15 (August 1962) in the Silver Age of Comic Books";
-		image = new ImageIcon("images/slaine.jpg");
+		image = new ImageIcon("images/spiderman.jpg");
 	}
 
 	public String getComicName() {

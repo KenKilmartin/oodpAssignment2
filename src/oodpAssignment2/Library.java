@@ -67,30 +67,34 @@ public class Library extends JFrame implements ActionListener{
 		Border greenLine =  BorderFactory.createMatteBorder(3, 3, 3, 3, Color.GREEN);//(top, left, bottom, right)
 		Border emptyBorder2 = BorderFactory.createEmptyBorder(35, 25, 35, 25);//(top, left, bottom, right)
 				
-		ImageIcon bookIcon = new ImageIcon("images/book.jpg");  
-		bookBtn = new JButton(bookIcon);
-		bookBtn.setFont(new Font("Lucida Sans", Font.BOLD, 16));
+//		ImageIcon bookIcon = new ImageIcon("images/book.jpg");  
+//		bookBtn = new JButton(bookIcon);
+		bookBtn = new JButton("Book");
+		bookBtn.setFont(new Font("Lucida Sans", Font.BOLD, 26));
 		bookBtn.setForeground(Color.DARK_GRAY);
 		bookBtn.setBorder(BorderFactory.createCompoundBorder(greenLine, emptyBorder2));
 		bookBtn.addActionListener(this);
 	
-		ImageIcon cdIcon = new ImageIcon("images/cd.jpg"); 
-		cdBtn = new JButton(cdIcon);
-		cdBtn.setFont(new Font("Lucida Sans", Font.BOLD, 16));
+//		ImageIcon cdIcon = new ImageIcon("images/cd.jpg"); 
+//		cdBtn = new JButton(cdIcon);
+		cdBtn = new JButton("CD");
+		cdBtn.setFont(new Font("Lucida Sans", Font.BOLD, 26));
 		cdBtn.setForeground(Color.DARK_GRAY);
 		cdBtn.setBorder(BorderFactory.createCompoundBorder(greenLine, emptyBorder2));
 		cdBtn.addActionListener(this);
 
-		ImageIcon comicBookIcon = new ImageIcon("images/comic.jpg"); 
-		comicBookBtn = new JButton(comicBookIcon);
-		comicBookBtn.setFont(new Font("Lucida Sans", Font.BOLD, 16));
+//		ImageIcon comicBookIcon = new ImageIcon("images/comic.jpg"); 
+//		comicBookBtn = new JButton(comicBookIcon);
+		comicBookBtn = new JButton("Comic Book");
+		comicBookBtn.setFont(new Font("Lucida Sans", Font.BOLD, 26));
 		comicBookBtn.setForeground(Color.DARK_GRAY);
 		comicBookBtn.setBorder(BorderFactory.createCompoundBorder(greenLine, emptyBorder2));
 		comicBookBtn.addActionListener(this);
 
-		ImageIcon logoutIcon = new ImageIcon("images/logout.jpg"); 
-		logOutBtn = new JButton(logoutIcon);
-		logOutBtn.setFont(new Font("Lucida Sans", Font.BOLD, 16));
+//		ImageIcon logoutIcon = new ImageIcon("images/logout.jpg"); 
+//		logOutBtn = new JButton(logoutIcon);
+		logOutBtn = new JButton("Log Out");
+		logOutBtn.setFont(new Font("Lucida Sans", Font.BOLD, 26));
 		logOutBtn.setForeground(Color.DARK_GRAY);
 		logOutBtn.setBorder(BorderFactory.createCompoundBorder(greenLine, emptyBorder2));
 		logOutBtn.addActionListener(this);
@@ -191,13 +195,20 @@ public class Library extends JFrame implements ActionListener{
 		}else if(e.getSource()==cdBtn){
 			factory = FactoryProducer.getFactory("CD");
 			
-			//new ViewStudent1(this);
-			//myCardLayout.show(swapPanelCards,"ViewStudent1");
+			//create a new Library_Book page and pass it this frame
+			new Library_CD(this, factory);
+			
+			//show the Library_Book page
+			myCardLayout.show(swapPanelCards,"Library_CD");
 		}else if(e.getSource()==comicBookBtn){
 			
 			factory = FactoryProducer.getFactory("ComicBook");
-			//new ModifyStudent1(this);
-			//myCardLayout.show(swapPanelCards,"ModifyStudent1");
+			
+			//create a new Library_Book page and pass it this frame
+			new Library_ComicBook(this, factory);
+			
+			//show the Library_Book page
+			myCardLayout.show(swapPanelCards,"Library_ComicBook");
 		}		
 		
 		//the command code---
