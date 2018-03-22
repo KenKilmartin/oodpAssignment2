@@ -7,11 +7,13 @@ import javax.swing.ImageIcon;
 public class AmericanIdiotCD implements Cd{
 
 	private String name;
+	private String bandName;
 	private ArrayList<String> tracks;
 	private ImageIcon image;
 	
 	public AmericanIdiotCD() {
 		name = "American Idiot";
+		bandName = "Green Day";
 		tracks = new ArrayList<>();
 		tracks.add("American Idiot");
 		tracks.add("Jesus of Suburbia");
@@ -43,6 +45,11 @@ public class AmericanIdiotCD implements Cd{
 	@Override
 	public ArrayList<String> getTracks() {
 		return tracks;
+	}
+
+	@Override
+	public String getBandName() {		
+		return bandName;
 	}
 
 }

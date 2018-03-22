@@ -8,7 +8,7 @@ import javax.swing.border.Border;
 
 public class Library_CD extends JFrame implements ItemListener {
 	private JPanel wrapPanel;
-	private Checkbox americanIdiot, californication, nevermind;
+	private Checkbox americanIdiot, californication, nevermind, moonSafari;
 //	private Checkbox nineteenEightyFour, ulysses;
 	Library frame;
 	AbstractFactory factory;
@@ -59,6 +59,9 @@ public class Library_CD extends JFrame implements ItemListener {
 		californication = new Checkbox("Californication", grp, false);
 		californication.addItemListener(this);
 		
+		moonSafari = new Checkbox("Moon Safari", grp, false);
+		moonSafari.addItemListener(this);
+		
 		nevermind = new Checkbox("Nevermind", grp, false);
 		nevermind.addItemListener(this);
 		
@@ -71,6 +74,7 @@ public class Library_CD extends JFrame implements ItemListener {
 		bookBtnPanel.add(americanIdiot);
 		bookBtnPanel.add(californication);
 		bookBtnPanel.add(nevermind);
+		bookBtnPanel.add(moonSafari);
 //		bookBtnPanel.add(nineteenEightyFour);
 //		bookBtnPanel.add(ulysses);
 		
@@ -169,6 +173,9 @@ public class Library_CD extends JFrame implements ItemListener {
 			
 		}else if(e.getItem().equals("Nevermind")){
 			cd=factory.getCd("Nevermind");
+		
+		}else if(e.getItem().equals("MoonSafari")){
+			cd=factory.getCd("MoonSafari");
 			
 		}else if(e.getItem().equals("Nineteen Eighty-Four")){
 			cd=factory.getCd("Nineteen Eighty-Four");
@@ -184,6 +191,7 @@ public class Library_CD extends JFrame implements ItemListener {
 	private void setCDInfo() {
 		if (cd != null) {
 			imageLabel.setIcon(cd.getImage());
+			cdInfoText.setText(cd.getBandName()+"\n");   /// just trying to pass in the actual band name  not sure why its not !
 			cdInfoText.setText(cd.getName()+"\n");
 			cdInfoText.append("\nTracks: \n");
 			for (int i = 0; i < cd.getTracks().size(); i++) {
