@@ -12,7 +12,7 @@ public class Library extends JFrame implements ActionListener{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private AbstractFactory bookFactory, cdFactory,comicFactory;
+	private AbstractFactory factory;
 	JButton bookBtn, cdBtn, comicBookBtn, logOutBtn;
 	Frame myFrame;
 	JMenu mnuFile;
@@ -49,7 +49,7 @@ public class Library extends JFrame implements ActionListener{
 		wrapMainScreenPanel.add(topPanel, BorderLayout.NORTH);
 		wrapMainScreenPanel.add(bottomPanel, BorderLayout.CENTER);
 		
-		swapPanelCards.add(wrapMainScreenPanel, "homeScreen");
+		swapPanelCards.add(wrapMainScreenPanel, "Library");
 		
 		
 		add(swapPanelCards);
@@ -134,20 +134,20 @@ public class Library extends JFrame implements ActionListener{
 	}
 	
 	private void makeGUI() {
-		JPanel centerPanel = new JPanel();
-		JLabel label1 = new JLabel("Author of harry potter: "+bookFactory.getBook("1984").getAuthor());
-		JLabel label2 = new JLabel(", cd name: "+cdFactory.getCd("Californication").getName());
-		JLabel label3 = new JLabel();
-		label3.setIcon(cdFactory.getCd("Californication").getImage());	
-		JLabel label4 = new JLabel("Author of Squee: "+comicFactory.getComic("Squee").getComicAuthor());
-		JLabel label5 = new JLabel();
-		label5.setIcon(comicFactory.getComic("Squee").getComicImage());
-		centerPanel.add(label1);
-		centerPanel.add(label2);
-		centerPanel.add(label3);
-		
-		centerPanel.add(label4);
-		centerPanel.add(label5);
+//		JPanel centerPanel = new JPanel();
+//		JLabel label1 = new JLabel("Author of harry potter: "+bookFactory.getBook("1984").getAuthor());
+//		JLabel label2 = new JLabel(", cd name: "+cdFactory.getCd("Californication").getName());
+//		JLabel label3 = new JLabel();
+//		label3.setIcon(cdFactory.getCd("Californication").getImage());	
+//		JLabel label4 = new JLabel("Author of Squee: "+comicFactory.getComic("Squee").getComicAuthor());
+//		JLabel label5 = new JLabel();
+//		label5.setIcon(comicFactory.getComic("Squee").getComicImage());
+//		centerPanel.add(label1);
+//		centerPanel.add(label2);
+//		centerPanel.add(label3);
+//		
+//		centerPanel.add(label4);
+//		centerPanel.add(label5);
 
 		//moved to library constructor
 //		JMenuBar mbar = new JMenuBar();
@@ -180,29 +180,29 @@ public class Library extends JFrame implements ActionListener{
 		
 		}else if(e.getSource()==bookBtn){
 			
-			bookFactory = FactoryProducer.getFactory("Book");
+			factory = FactoryProducer.getFactory("Book");
 				
-			//create a new AddStudent1 page and pass it this frame
-			//new AddStudent1(this);
+			//create a new Library_Book page and pass it this frame
+			new Library_Book(this, factory);
 			
-			//show the AddStudent1 page
-			//myCardLayout.show(swapPanelCards,"AddStudent1");
+			//show the Library_Book page
+			myCardLayout.show(swapPanelCards,"Library_Book");
 		
 		}else if(e.getSource()==cdBtn){
-			cdFactory = FactoryProducer.getFactory("CD");
+			factory = FactoryProducer.getFactory("CD");
 			
 			//new ViewStudent1(this);
 			//myCardLayout.show(swapPanelCards,"ViewStudent1");
 		}else if(e.getSource()==comicBookBtn){
 			
-			comicFactory = FactoryProducer.getFactory("ComicBook");
+			factory = FactoryProducer.getFactory("ComicBook");
 			//new ModifyStudent1(this);
 			//myCardLayout.show(swapPanelCards,"ModifyStudent1");
 		}		
 		
 		//the command code---
-		CommandHolder obj = (CommandHolder)e.getSource();
-		obj.getCommand().Execute();
+//		CommandHolder obj = (CommandHolder)e.getSource();
+//		obj.getCommand().Execute();
 	}
 	
 	
