@@ -174,8 +174,8 @@ public class Library_CD extends JFrame implements ItemListener {
 		}else if(e.getItem().equals("Nevermind")){
 			cd=factory.getCd("Nevermind");
 		
-		}else if(e.getItem().equals("MoonSafari")){
-			cd=factory.getCd("MoonSafari");
+		}else if(e.getItem().equals("Moon Safari")){
+			cd=factory.getCd("Moon Safari");
 			
 		}else if(e.getItem().equals("Nineteen Eighty-Four")){
 			cd=factory.getCd("Nineteen Eighty-Four");

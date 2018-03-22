@@ -23,6 +23,7 @@ public class CdFactory extends AbstractFactory{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 
 	@Override
 	Cd getCd(String cdName) {
@@ -35,6 +36,8 @@ public class CdFactory extends AbstractFactory{
 			return new Californication();
 		}else if(cdName.equalsIgnoreCase("Nevermind")){
 			return new NevermindCD();
+		}else if(cdName.equalsIgnoreCase("Moon Safari")){
+			return new MoonSafari();
 		}
 		return null;
 	}
