@@ -2,11 +2,11 @@ package oodpAssignment2;
 import java.awt.*;
 import javax.swing.*;
 
-public class cmdMenu extends JMenuItem implements CommandHolder {
+public class CmdMenu extends JMenuItem implements CommandHolder {
    protected Command menuCommand;
    protected JFrame frame;
 //-----------------------
-   public cmdMenu(String name, JFrame frm) {
+   public CmdMenu(String name, JFrame frm) {
       super(name);
       frame = frm;
    }
