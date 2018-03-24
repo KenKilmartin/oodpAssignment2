@@ -1,10 +1,12 @@
 package oodpAssignment2;
 import java.awt.*;
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.event.*;
 
 public class LogoutBtnCommand extends JButton implements Command {
+
+
+	private static final long serialVersionUID = 1L;
 	JFrame frame;
 	Frame myFrame;
 

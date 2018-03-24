@@ -9,7 +9,8 @@ public class fileCommand implements Command {
       frame = fr;
    }
 //------------------------------
-   public void Execute() {
+   @SuppressWarnings("deprecation")
+public void Execute() {
       FileDialog fDlg = new FileDialog(frame, "Open file");
       fDlg.show();
    }

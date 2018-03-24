@@ -17,25 +17,21 @@ public class NineteenEightyFour implements Book{
 
 	@Override
 	public String getName() {
-
 		return name;
 	}
 
 	@Override
 	public ImageIcon getImage() {
-
 		return image;
 	}
 
 	@Override
 	public String getAuthor() {
-
 		return author;
 	}
 
 	@Override
 	public String getDesc() {
-
 		return desc;
 	}
 

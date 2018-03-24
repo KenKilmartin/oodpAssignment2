@@ -6,7 +6,7 @@ public class Garfield {
 
 	private String name, author, desc;
 	private ImageIcon image;
-	
+
 	public Garfield() {
 		name = "Garfield";
 		author = "Jim Davis";

@@ -1,9 +1,10 @@
 package oodpAssignment2;
 import java.awt.*;
 import javax.swing.*;
-import javax.swing.border.Border;
 
 public class BtnCommand extends JButton implements Command {
+	
+	private static final long serialVersionUID = 1L;
 	Library frame;
 	private AbstractFactory factory;
 	CardLayout myCardLayout;

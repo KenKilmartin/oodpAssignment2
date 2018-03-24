@@ -15,25 +15,21 @@ public class HungerGames implements Book {
 	}
 	@Override
 	public String getName() {
-
 		return name;
 	}
 
 	@Override
 	public ImageIcon getImage() {
-
 		return image;
 	}
 
 	@Override
 	public String getAuthor() {
-
 		return author;
 	}
 
 	@Override
 	public String getDesc() {
-		// TODO Auto-generated method stub
 		return desc;
 	}
 

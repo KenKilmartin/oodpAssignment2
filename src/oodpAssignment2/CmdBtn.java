@@ -4,6 +4,8 @@ import javax.swing.*;
 import javax.swing.border.Border;
 
 public class CmdBtn extends JButton implements CommandHolder {
+
+	private static final long serialVersionUID = 1L;
 	protected Command btnCommand;
 	protected JFrame frame;
 	//-----------------------

@@ -1,9 +1,12 @@
 package oodpAssignment2;
-import java.awt.*;
 import javax.swing.*;
 
 public class CmdMenu extends JMenuItem implements CommandHolder {
-   protected Command menuCommand;
+   /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+protected Command menuCommand;
    protected JFrame frame;
 //-----------------------
    public CmdMenu(String name, JFrame frm) {

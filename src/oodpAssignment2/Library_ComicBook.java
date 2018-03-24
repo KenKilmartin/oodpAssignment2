@@ -7,6 +7,8 @@ import javax.swing.border.Border;
 
 
 public class Library_ComicBook extends JFrame implements ItemListener {
+
+	private static final long serialVersionUID = 1L;
 	private JPanel wrapPanel;
 	private Checkbox squee, slaine, spiderMan, garfield;
 	Library frame;
@@ -15,25 +17,25 @@ public class Library_ComicBook extends JFrame implements ItemListener {
 	JTextArea comicBookInfoText;
 
 	JLabel imageLabel;
-	
+
 	public Library_ComicBook(Library frame, AbstractFactory factory){
 		this.frame=frame;
 		this.factory = factory;
 		wrapPanel = new JPanel(new BorderLayout());
 		JPanel topPanel = (buildTopPanel());
 		JPanel centerPanel = (buildCenterPanel());
-	
+
 		JPanel bottomPanel = (buildbottomPanel());
-		
+
 		wrapPanel.add(topPanel, BorderLayout.NORTH);
 		wrapPanel.add(centerPanel, BorderLayout.CENTER);
 		wrapPanel.add(bottomPanel, BorderLayout.SOUTH);
-		
+
 		UIManager.put("OptionPane.background", Color.PINK);
 		UIManager.put("Panel.background", Color.PINK);
-		
-		
-		
+
+
+
 		frame.swapPanelCards.add(wrapPanel, "Library_ComicBook");
 
 	}
@@ -46,40 +48,39 @@ public class Library_ComicBook extends JFrame implements ItemListener {
 
 		centerPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 3, 0, Color.BLACK));
 
-		
-		JPanel bookBtnPanel = new JPanel(new GridLayout(1, 4));
-		bookBtnPanel.setFont(new Font("Lucida Sans", Font.BOLD, 16));
-		bookBtnPanel.setBorder(emptyBorder);
+
+		JPanel comicBookBtnPanel = new JPanel(new GridLayout(1, 4));
+		comicBookBtnPanel.setFont(new Font("Lucida Sans", Font.BOLD, 16));
+		comicBookBtnPanel.setBorder(emptyBorder);
 		CheckboxGroup grp= new CheckboxGroup();
-		
+
 		squee = new Checkbox("Squee", grp, false);
 		squee.addItemListener(this);
-		
+
 		slaine = new Checkbox("Slaine", grp, false);
 		slaine.addItemListener(this);
-		
+
 		spiderMan = new Checkbox("SpiderMan", grp, false);
 		spiderMan.addItemListener(this);
-		
+
 		garfield = new Checkbox("Garfield", grp, false);
 		garfield.addItemListener(this);
-		
-//		ulysses = new Checkbox("Ulysses", grp, false);
-//		ulysses.addItemListener(this);
-		
-		bookBtnPanel.add(squee);
-		bookBtnPanel.add(slaine);
-		bookBtnPanel.add(spiderMan);
-		bookBtnPanel.add(garfield);
-//		bookBtnPanel.add(ulysses);
-		
-		centerPanel.add(bookBtnPanel, BorderLayout.NORTH);
-		
+
+	
+
+		comicBookBtnPanel.add(squee);
+		comicBookBtnPanel.add(slaine);
+		comicBookBtnPanel.add(spiderMan);
+		comicBookBtnPanel.add(garfield);
+	
+
+		centerPanel.add(comicBookBtnPanel, BorderLayout.NORTH);
+
 		JPanel bookInfoPanel = makeBookInfoPanel();
 		centerPanel.add(bookInfoPanel, BorderLayout.CENTER);
 		return centerPanel;
 	}
-	
+
 	public JPanel makeBookInfoPanel() {
 		JPanel cInfoPanel = new JPanel(new BorderLayout());
 		comicBookInfoText = new JTextArea(50, 50);
@@ -88,7 +89,7 @@ public class Library_ComicBook extends JFrame implements ItemListener {
 		Border greenLine =  BorderFactory.createMatteBorder(2, 2, 2, 2, Color.GREEN);//(top, left, bottom, right)
 		comicBookInfoText.setBorder(BorderFactory.createCompoundBorder(greenLine, emptyBorder));
 		JScrollPane scroll = new JScrollPane(comicBookInfoText); 
-		
+
 		scroll.setBorder(emptyBorder);
 		comicBookInfoText.setLineWrap(true);
 
@@ -97,7 +98,7 @@ public class Library_ComicBook extends JFrame implements ItemListener {
 		cInfoPanel.add(imageLabel, BorderLayout.WEST);
 		cInfoPanel.add(scroll, BorderLayout.CENTER);
 		cInfoPanel.setBorder(BorderFactory.createMatteBorder(3, 3, 3, 3, Color.CYAN));
-		
+
 		return cInfoPanel;
 	}
 
@@ -105,16 +106,16 @@ public class Library_ComicBook extends JFrame implements ItemListener {
 		JPanel bottomPanel = new JPanel();
 		Border greenLine =  BorderFactory.createMatteBorder(2, 2, 2, 2, Color.GREEN);//(top, left, bottom, right)
 		Border emptyBorder = BorderFactory.createEmptyBorder(10, 80, 10, 80);//(top, left, bottom, right)
-		
+
 		JButton backButton = new JButton("Back");
 		backButton.setFont(new Font("Lucida Sans", Font.BOLD, 16));
 		backButton.setForeground(Color.DARK_GRAY);
 		backButton.setBorder(BorderFactory.createCompoundBorder(greenLine, emptyBorder));
 		backButton.addActionListener(new ActionListener() {
-						
+
 			public void actionPerformed(ActionEvent e) {
 				frame.myCardLayout.show(frame.swapPanelCards, "Library");
-				
+
 			}
 		});
 		JButton rentButton = new JButton("Rent");
@@ -122,18 +123,18 @@ public class Library_ComicBook extends JFrame implements ItemListener {
 		rentButton.setForeground(Color.DARK_GRAY);
 		rentButton.setBorder(BorderFactory.createCompoundBorder(greenLine, emptyBorder));
 		rentButton.addActionListener(new ActionListener() {
-						
+
 			public void actionPerformed(ActionEvent e) {
 				UIManager.put("OptionPane.background", Color.PINK);
 				UIManager.put("Panel.background", Color.pink);
 				JOptionPane.showMessageDialog(frame, "You have chosen to rent "+comicBook.getComic(), "Enjoy!!", JOptionPane.PLAIN_MESSAGE);
-				
+
 			}
 		});
-		
+
 		bottomPanel.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
 		bottomPanel.setBackground(Color.PINK);
-		
+
 		bottomPanel.add(backButton);
 		bottomPanel.add(rentButton);
 
@@ -143,35 +144,35 @@ public class Library_ComicBook extends JFrame implements ItemListener {
 	private JPanel buildTopPanel() {
 		JPanel topPanel = new JPanel(new BorderLayout());
 		topPanel.setBackground(Color.PINK);
-		
+
 		JLabel titleLabel = new JLabel("Welcome to the wonderful world of Comic Books...");
 		titleLabel.setFont(new Font("Cooper Black", Font.PLAIN, 30));
-		
+
 		titleLabel.setBorder(BorderFactory.createEmptyBorder(50, 30, 10, 10)); //empty border (top, left, bottom, right)
 		titleLabel.setForeground(Color.DARK_GRAY);
-		
+
 		topPanel.add(titleLabel);
 
 		topPanel.setBorder(BorderFactory.createMatteBorder(0,0,3,0, Color.CYAN));
-	
+
 		return topPanel;
 	}
 
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 		if(e.getItem().equals("Squee")){
-			
+
 			comicBook=factory.getComic("Squee");
-		
+
 		}else if(e.getItem().equals("Slaine")){
 			comicBook=factory.getComic("Slaine");
-			
+
 		}else if(e.getItem().equals("SpiderMan")){
 			comicBook=factory.getComic("SpiderMan");
-			
+
 		}else if(e.getItem().equals("Garfield")){
 			comicBook=factory.getComic("Garfield");
-						
+
 		}
 		clearComicBookInfo();
 		setComicBookInfo();
@@ -183,16 +184,16 @@ public class Library_ComicBook extends JFrame implements ItemListener {
 			comicBookInfoText.setText(comicBook.getComic()+"\n");
 			comicBookInfoText.append("\nAuthor: "+comicBook.getComicAuthor()+"\n");
 			comicBookInfoText.append("\nDescription\n"+comicBook.getComicDesc());
-			
+
 		}
-		
+
 	}
 
 	private void clearComicBookInfo() {
 		comicBookInfoText.setText("");
 		imageLabel.setIcon(null);
 	}
-	
-	
+
+
 
 }
