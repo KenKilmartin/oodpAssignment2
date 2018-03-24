@@ -99,7 +99,7 @@ public class Library extends JFrame implements ActionListener{
 		JPanel leftPanel = new JPanel();
 		JPanel rightPanel = new JPanel();
 		JPanel wrapTopPanel = new JPanel(new BorderLayout());
-		wrapTopPanel.setBackground(Color.PINK);  //HAHAHAHAHA Kens fav colour
+		wrapTopPanel.setBackground(Color.PINK);  
 
 		JLabel welcomeLabel = new JLabel("Welcome to the Best Library Ever!");
 		welcomeLabel.setFont(new Font("Cooper Black", Font.PLAIN, 30));
