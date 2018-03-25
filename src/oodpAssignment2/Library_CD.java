@@ -187,8 +187,7 @@ public class Library_CD extends JFrame implements ItemListener {
 	private void setCDInfo() {
 		if (cd != null) {
 			imageLabel.setIcon(cd.getImage());
-			cdInfoText.setText(cd.getBandName()+"\n");   /// just trying to pass in the actual band name  not sure why its not !
-			cdInfoText.setText(cd.getName()+"\n");
+			cdInfoText.setText("Band: "+cd.getBandName()+"\n"+ "Albumn Name: " + cd.getName()+"\n");   		
 			cdInfoText.append("\nTracks: \n");
 			for (int i = 0; i < cd.getTracks().size(); i++) {
 				cdInfoText.append((i+1)+": "+cd.getTracks().get(i)+"\n");
