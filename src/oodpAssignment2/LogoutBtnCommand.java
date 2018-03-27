@@ -17,8 +17,8 @@ public class LogoutBtnCommand extends JButton implements Command {
 	//------------------------------
 	public void Execute() {
 		frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));//to close the GUI	
-		UIManager.put("OptionPane.background", Color.PINK);
-		UIManager.put("Panel.background", Color.pink);
+		UIManager.put("OptionPane.background", new Color( 255,228,196));
+		UIManager.put("Panel.background",new Color( 255,228,196));
 		JOptionPane.showMessageDialog(myFrame, "You have now Logged Out", "Good-Bye", JOptionPane.PLAIN_MESSAGE);
 		System.exit(0);//this stops the program running in the background
 	}

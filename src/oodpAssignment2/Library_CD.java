@@ -33,8 +33,8 @@ public class Library_CD extends JFrame implements ItemListener {
 		wrapPanel.add(centerPanel, BorderLayout.CENTER);
 		wrapPanel.add(bottomPanel, BorderLayout.SOUTH);
 
-		UIManager.put("OptionPane.background", Color.PINK);
-		UIManager.put("Panel.background", Color.PINK);
+		UIManager.put("OptionPane.background",new Color( 255,228,196));
+		UIManager.put("Panel.background", new Color( 255,228,196));
 
 
 
@@ -44,7 +44,7 @@ public class Library_CD extends JFrame implements ItemListener {
 
 	private JPanel buildCenterPanel() {
 		JPanel centerPanel = new JPanel(new BorderLayout());
-		centerPanel.setBackground(Color.PINK);
+		centerPanel.setBackground(new Color( 255,228,196));
 
 		Border emptyBorder = BorderFactory.createEmptyBorder(20, 20, 20, 20);//(top, left, bottom, right)
 
@@ -97,7 +97,7 @@ public class Library_CD extends JFrame implements ItemListener {
 		imageLabel.setBorder(emptyBorder);
 		cdInfoPanel.add(imageLabel, BorderLayout.WEST);
 		cdInfoPanel.add(scroll, BorderLayout.CENTER);
-		cdInfoPanel.setBorder(BorderFactory.createMatteBorder(3, 3, 3, 3, Color.CYAN));
+		cdInfoPanel.setBorder(BorderFactory.createMatteBorder(3, 3, 3, 3, Color.ORANGE));
 
 		return cdInfoPanel;
 	}
@@ -109,7 +109,7 @@ public class Library_CD extends JFrame implements ItemListener {
 
 		JButton backButton = new JButton("Back");
 		backButton.setFont(new Font("Lucida Sans", Font.BOLD, 16));
-		backButton.setForeground(Color.DARK_GRAY);
+		backButton.setBackground(new Color( 210,180,140));
 		backButton.setBorder(BorderFactory.createCompoundBorder(greenLine, emptyBorder));
 		backButton.addActionListener(new ActionListener() {
 
@@ -120,20 +120,20 @@ public class Library_CD extends JFrame implements ItemListener {
 		});
 		JButton rentButton = new JButton("Rent");
 		rentButton.setFont(new Font("Lucida Sans", Font.BOLD, 16));
-		rentButton.setForeground(Color.DARK_GRAY);
+		rentButton.setBackground(new Color( 210,180,140));
 		rentButton.setBorder(BorderFactory.createCompoundBorder(greenLine, emptyBorder));
 		rentButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				UIManager.put("OptionPane.background", Color.PINK);
-				UIManager.put("Panel.background", Color.pink);
+				UIManager.put("OptionPane.background", new Color( 210,180,140));
+				UIManager.put("Panel.background", new Color( 210,180,140));
 				JOptionPane.showMessageDialog(frame, "You have chosen to rent "+cd.getName(), "Enjoy!!", JOptionPane.PLAIN_MESSAGE);
 
 			}
 		});
 
 		bottomPanel.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
-		bottomPanel.setBackground(Color.PINK);
+		bottomPanel.setBackground(new Color( 255,228,196));
 
 		bottomPanel.add(backButton);
 		bottomPanel.add(rentButton);
@@ -143,7 +143,7 @@ public class Library_CD extends JFrame implements ItemListener {
 
 	private JPanel buildTopPanel() {
 		JPanel topPanel = new JPanel(new BorderLayout());
-		topPanel.setBackground(Color.PINK);
+		topPanel.setBackground(new Color( 255,228,196));
 
 		JLabel titleLabel = new JLabel("So many awesome CD's, how will you ever choose!?");
 		titleLabel.setFont(new Font("Cooper Black", Font.PLAIN, 30));
@@ -153,7 +153,7 @@ public class Library_CD extends JFrame implements ItemListener {
 
 		topPanel.add(titleLabel);
 
-		topPanel.setBorder(BorderFactory.createMatteBorder(0,0,3,0, Color.CYAN));
+		topPanel.setBorder(BorderFactory.createMatteBorder(0,0,3,0, Color.ORANGE));
 
 		return topPanel;
 	}
