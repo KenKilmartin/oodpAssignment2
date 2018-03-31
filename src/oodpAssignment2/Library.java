@@ -16,7 +16,7 @@ public class Library extends JFrame implements ActionListener{
 	CmdBtn bookBtn, cdBtn, comicBookBtn, logoutBtn;
 	Frame myFrame;
 	JMenu mnuFile;
-	CmdMenu  mnuOpen;
+	CmdMenu  mnuLogOut;
 
 
 	//setting up Card Layout
@@ -34,11 +34,11 @@ public class Library extends JFrame implements ActionListener{
 		mnuFile = new JMenu("File", true);
 		mbar.add(mnuFile);
 
-		mnuOpen = new CmdMenu("Open...", this);
-		mnuFile.add(mnuOpen);
+		mnuLogOut = new CmdMenu("Log Out", this);
+		mnuFile.add(mnuLogOut);
 
-		mnuOpen.addActionListener(this);
-		mnuOpen.setCommand (new fileCommand(this));
+		mnuLogOut.addActionListener(this);
+		mnuLogOut.setCommand(new LogoutBtnCommand(this, myFrame));
 
 		myCardLayout = new CardLayout();
 		swapPanelCards = new JPanel(myCardLayout);
